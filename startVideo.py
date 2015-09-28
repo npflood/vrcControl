@@ -30,10 +30,11 @@ class Supervisor:
 
 	def self_check(self):
 		#todo: have the system cycle all the lights
+		print "We should be self checking."
 
 
 
-supervisor = Supvervisor()
+supervisor = Supervisor()
 
 #Start Video
 deck1 = supervisor.deck_list[0]

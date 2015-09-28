@@ -15,7 +15,7 @@ class DeckController:
 		print "Button pressed on deck: %s" %(self.name)
 		if self.status == "Stopped":
 			start()
-		elif self.status == "Playing" || self.status == "Paused"
+		elif self.status == "Playing" or self.status == "Paused":
 			pause()
 
 	def start(self):
