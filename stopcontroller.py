@@ -9,6 +9,7 @@ class StopController:
 		self.outputPin = outputPin
 		self.inputbutton = InputButton(self.inputPin, self)
 		self.monitorThread = threading.Thread(target=StopMonitor, args=(self, int(self.outputPin)))
+		self.monitorThread.daemon = True
 		self.monitorThread.start()
 	def button_pressed(self):
 		print "Stop Button Pressed."

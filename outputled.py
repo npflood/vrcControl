@@ -24,6 +24,7 @@ class OutputLED:
 			time.sleep(float(rate))
 		self.e.clear()
 		tempThread = threading.Thread(target=self.blinkThread, args=(self.e, float(rate)))
+		tempThread.daemon = True
 		tempThread.start()
 		self.state = "blinking"
 	def get_state(self):

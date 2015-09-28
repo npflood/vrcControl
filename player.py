@@ -10,6 +10,7 @@ class Player:
 		self.dbusIfaceProp = None
 		self.dbusIfaceKey = None
 		self.monitorThread = threading.Thread(target=PlayerMonitor, args=(self, int(self.deck.outputPin)))
+		self.monitorThread.daemon = True
 		self.monitorThread.start()
 
 	def play(self):
