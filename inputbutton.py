@@ -4,6 +4,7 @@ GPIO.setmode(GPIO.BOARD)
 class InputButton:
 	def __init__(self, buttonPin, controller):
 		self.buttonPin = buttonPin
+		GPIO.setup(int(self.buttonPin), GPIO.IN)
 		self.controller = controller
 		GPIO.add_event_detect(int(self.buttonPin), GPIO.FALLING, callback=self.callback, bouncetime=300) 
 	
