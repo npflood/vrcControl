@@ -1,3 +1,4 @@
+import time
 from outputled import OutputLED
 
 class StopMonitor:

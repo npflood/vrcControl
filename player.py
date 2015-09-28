@@ -19,7 +19,7 @@ class Player:
 		done,retry = 0,0	
 		while done==0:
 			username = pwd.getpwuid(os.getuid()).pw_name
-			print username
+			#print username
         		try:
                 		with open('/tmp/omxplayerdbus.%s'%(username), 'r+') as f:
                 	        	omxplayerdbus = f.read().strip()
@@ -40,7 +40,10 @@ class Player:
 		if self.dbusIfaceProp == None:
 			return "Stopped"
 		else:
-			return self.dbusIfaceProp.PlaybackStatus()
+			try:
+				return self.dbusIfaceProp.PlaybackStatus()
+			except dbus.exceptions.DBusException:
+				return "Stopped"
 	def pause(self):
 		if self.dbusIfaceKey != None:
 			self.dbusIfaceKey.Action(dbus.Int32("16"))

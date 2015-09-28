@@ -7,7 +7,7 @@ class DeckController:
 		self.inputPin = inputPin
 		self.outputPin = outputPin
 		self.filename = filename
-		self.player = Player(self.filename, self) # perhaps should not be persisted?
+		self.player = Player(self)
 		self.status = self.player.status()
 		self.inputbutton = InputButton(self.inputPin, self)
 

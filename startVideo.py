@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
+import time
 from deckcontroller import DeckController
 from stopcontroller import StopController
+from sys import exit
 
 class Supervisor:
 	def __init__(self):
@@ -52,3 +54,10 @@ deck1.pause()
 # key: quit after 5 seconds
 time.sleep(15)
 supervisor.stop_all()
+
+time.sleep(5)
+deck1.start()
+time.sleep(10)
+supervisor.stop_all()
+
+exit(0)

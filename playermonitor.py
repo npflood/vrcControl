@@ -1,3 +1,4 @@
+import time
 from outputled import OutputLED
 
 class PlayerMonitor:
@@ -23,9 +24,9 @@ class PlayerMonitor:
 				else:
 					self.led.blink(0.25)
 				time.sleep(0.5)
-			except(dbus.exceptions.DBusException):
-				#?won't be necessary when we move all dbus into the player
-				self.led.off()
-				break
+			#except(dbus.exceptions.DBusException):
+			#	#?won't be necessary when we move all dbus into the player
+			#	self.led.off()
+			#	break
 			except(KeyboardInterrupt, SystemExit):
 				raise
