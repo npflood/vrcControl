@@ -3,7 +3,6 @@
 import time
 from deckcontroller import DeckController
 from stopcontroller import StopController
-from sys import exit
 
 class Supervisor:
 	def __init__(self):
@@ -60,4 +59,4 @@ deck1.start()
 time.sleep(10)
 supervisor.stop_all()
 
-exit(0)
+time.sleep(10)
