@@ -11,6 +11,7 @@ class StopMonitor:
 	def start(self):
 		while True:
 			status = self.stopController.supervisor.playback_state()
+			#print status
 			if status == "Playing":
 				if self.led.get_state() != "on":
 					self.led.on()

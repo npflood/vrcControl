@@ -8,7 +8,7 @@ class DeckController:
 		self.outputPin = outputPin
 		self.filename = filename
 		self.player = Player(self)
-		self.status = self.player.status()
+		#self.status = self.player.status()
 		self.inputbutton = InputButton(self.inputPin, self)
 
 	def button_pressed(self):
@@ -26,3 +26,6 @@ class DeckController:
 
 	def pause(self):
 		self.player.pause()
+
+	def status(self):
+		return self.player.status()

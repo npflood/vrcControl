@@ -42,7 +42,7 @@ class Player:
 			return "Stopped"
 		else:
 			try:
-				return self.dbusIfaceProp.PlaybackStatus()
+				return str(self.dbusIfaceProp.PlaybackStatus())
 			except dbus.exceptions.DBusException:
 				return "Stopped"
 	def pause(self):

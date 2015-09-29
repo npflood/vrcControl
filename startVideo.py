@@ -6,9 +6,11 @@ from stopcontroller import StopController
 
 class Supervisor:
 	def __init__(self):
-		self.stopButton = StopController(self, 11, 12)
 		#todo: implement stopController parameters from configuration file
 		self.deck_list = []
+	
+		self.stopButton = StopController(self, 11, 12)
+
 		self.deck_list.append(DeckController("Deck 1", "sample.mp4", 8, 7))
 		#todo: implement deck parameters from configuration file
 		#todo: implement power on button
@@ -16,8 +18,8 @@ class Supervisor:
 		self.self_check()
 
 	def playback_state(self):
-		states = map((lambda x: x.status), self.deck_list)
-
+		states = map((lambda x: x.status()), self.deck_list)
+		#print states
 		if "Playing" in states:
 			return "Playing"
 		elif "Paused" in states: 
@@ -40,23 +42,24 @@ supervisor = Supervisor()
 #Start Video
 deck1 = supervisor.deck_list[0]
 deck1.start()
-
+print deck1.status()
 # key: pause after 5 seconds
 time.sleep(15)
 deck1.pause()
-
+print deck1.status()
 
 # key: un-pause after 5 seconds
 time.sleep(15)
 deck1.pause()
-
+print deck1.status()
 # key: quit after 5 seconds
 time.sleep(15)
 supervisor.stop_all()
-
+print deck1.status()
 time.sleep(5)
 deck1.start()
+print deck1.status()
 time.sleep(10)
 supervisor.stop_all()
-
+print deck1.status()
 time.sleep(10)
