@@ -39,27 +39,32 @@ class Supervisor:
 
 supervisor = Supervisor()
 
+while True:
+	keypress = raw_input("Press 'q' to Quit")
+	if keypress == 'q':
+		break
+
 #Start Video
-deck1 = supervisor.deck_list[0]
-deck1.start()
-print deck1.status()
+#deck1 = supervisor.deck_list[0]
+#deck1.start()
+#print deck1.status()
 # key: pause after 5 seconds
-time.sleep(15)
-deck1.pause()
-print deck1.status()
+#time.sleep(15)
+#deck1.pause()
+#print deck1.status()
 
 # key: un-pause after 5 seconds
-time.sleep(15)
-deck1.pause()
-print deck1.status()
+#time.sleep(15)
+#deck1.pause()
+#print deck1.status()
 # key: quit after 5 seconds
-time.sleep(15)
-supervisor.stop_all()
-print deck1.status()
-time.sleep(5)
-deck1.start()
-print deck1.status()
-time.sleep(10)
-supervisor.stop_all()
-print deck1.status()
-time.sleep(10)
+#time.sleep(15)
+#supervisor.stop_all()
+#print deck1.status()
+#time.sleep(5)
+#deck1.start()
+#print deck1.status()
+#time.sleep(10)
+#supervisor.stop_all()
+#print deck1.status()
+#time.sleep(10)

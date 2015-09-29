@@ -13,14 +13,16 @@ class StopMonitor:
 			status = self.stopController.supervisor.playback_state()
 			#print status
 			if status == "Playing":
+				if self.led.get_state() != "off":
+					#self.led.blink(0.5)
+					self.led.off()
+			elif status == "Paused":
+				if self.led.get_state() != "off":
+					#self.led.blink(0.5)
+					self.led.off()
+			elif status == "Stopped":
 				if self.led.get_state() != "on":
 					self.led.on()
-			elif status == "Paused":
-				if self.led.get_state() != "blinking":
-					self.led.blink(0.5)
-			elif status == "Stopped":
-				if self.led.get_state() != "off":
-					self.led.off()
 			else:
 				self.led.blink(0.25)
 			time.sleep(0.5)
